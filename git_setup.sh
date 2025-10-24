@@ -151,3 +151,23 @@ echo
 echo "Daily sync:"
 echo "  cd \"$MAIN\" && git fetch upstream && git merge --ff-only upstream/main && git push origin main"
 echo "  cd \"$PROD\" && git fetch --all && git merge main && git push"
+
+# Sync step by step manually
+# from main in terminal:
+# cd /Users/josh/Projects/llm_engineering/main
+# verify everything configured correctly with git remote -v
+# should look something like:
+
+# josh@Josh-MBP2023 main % git remote -v
+# origin	https://github.com/joshphillipssr/llm_engineering.git (fetch)
+# origin	https://github.com/joshphillipssr/llm_engineering.git (push)
+# upstream	https://github.com/ed-donner/llm_engineering.git (fetch)
+# upstream	https://github.com/ed-donner/llm_engineering.git (push)
+
+# git switch main
+# git fetch upstream
+# git merge --ff-only upstream/main
+# git push origin main
+
+# At this point, fork in GitHub should be up to date with upstream
+
