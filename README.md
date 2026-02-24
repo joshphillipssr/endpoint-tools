@@ -12,6 +12,7 @@ Consolidated endpoint/admin automation scripts migrated from:
 - `Dell-Command-Update`
 - `clear-last-logged-in-user`
 - `SCCM` (migrated as `ad-group-sync`)
+- `Private-Scripts` (curated subset)
 
 ## Layout
 
@@ -25,6 +26,7 @@ Consolidated endpoint/admin automation scripts migrated from:
 - `tools/dell-command-update/`
 - `tools/clear-last-logged-in-user/`
 - `tools/ad-group-sync/`
+- `tools/private-scripts/`
 
 ## Usage Note
 
