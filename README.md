@@ -1,4 +1,4 @@
-# endpoint-automation-scripts
+# endpoint-tools
 
 Consolidated endpoint/admin automation scripts migrated from:
 
@@ -9,6 +9,8 @@ Consolidated endpoint/admin automation scripts migrated from:
 - `RDS-Sanitization`
 - `screenconnect-install`
 - `Dell-Laptops`
+- `Dell-Command-Update`
+- `clear-last-logged-in-user`
 
 ## Layout
 
