@@ -19,6 +19,8 @@ Consolidated endpoint/admin automation scripts migrated from:
 - `tools/rds-sanitization/`
 - `tools/screenconnect-install/`
 - `tools/dell-laptops/`
+- `tools/dell-command-update/`
+- `tools/clear-last-logged-in-user/`
 
 ## Usage Note
 
