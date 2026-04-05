@@ -154,7 +154,7 @@ echo "  cd \"$PROD\" && git fetch --all && git merge main && git push"
 
 # Sync step by step manually
 # from main in terminal:
-# cd /Users/josh/Projects/llm_engineering/main
+# cd "$HOME/Projects/llm_engineering/main"
 # verify everything configured correctly with git remote -v
 # should look something like:
 

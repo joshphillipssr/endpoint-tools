@@ -2,7 +2,8 @@
 # Start-Sleep -Seconds 10
 
 # Variables
-$installerUrl = "https://joshphillipssr.screenconnect.com/Bin/JPsupport.ClientSetup.msi?e=Access&y=Guest"
+# Replace this placeholder with the guest MSI link from your ScreenConnect tenant.
+$installerUrl = "https://screenconnect.example.com/Bin/Support.ClientSetup.msi?e=Access&y=Guest"
 $tempPath = "$env:TEMP\ScreenConnect.ClientSetup.msi"
 $logPath = "C:\Windows\Temp\ScreenConnect_Install_Log.txt"
 $serviceName = "ScreenConnect Client*"

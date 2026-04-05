@@ -9,9 +9,9 @@ param (
 # Script variables to manually set
 
 $script:LogFilePath = "C:\Logs\TeamsCleanup.log"
-$script:LogSharePath = "\\SERVER\Share"
-$script:LogShareUsername = "DOMAIN\Username"
-$script:LogSharePassword = "Password"
+$script:LogSharePath = $null
+$script:LogShareUsername = $null
+$script:LogSharePassword = $null
 
 # Script variables auto-set during execution
 
@@ -212,8 +212,7 @@ function Exit-Script {
 
     # Attempt to copy the log file to the network share before exiting
     try {
-        Copy-LogToNetworkShare
-        Write-Log -LogLevel INFO "Log file successfully copied to network share before exiting."
+        [void](Copy-LogToNetworkShare)
     } catch {
         Write-Log -LogLevel ERROR "Failed to copy log file to network share before exiting. Exception: $_"
     }
@@ -1082,11 +1081,18 @@ function Register-TeamsPackageForUser {
 # Function to copy the log file to a network share
 
 function Copy-LogToNetworkShare {
+    if ([string]::IsNullOrWhiteSpace($script:LogSharePath) -or
+        [string]::IsNullOrWhiteSpace($script:LogShareUsername) -or
+        [string]::IsNullOrWhiteSpace($script:LogSharePassword)) {
+        Write-Log -LogLevel INFO "Network share logging is not configured. Skipping copy to network share."
+        return $false
+    }
+
     try {
         # Ensure the log file exists
         if (-not (Test-Path -Path $script:LogFilePath)) {
             Write-Log -LogLevel WARNING "Log file not found at path: $script:LogFilePath. Skipping copy to network share."
-            return
+            return $false
         }
 
         # Define the destination file name and path
@@ -1110,8 +1116,10 @@ function Copy-LogToNetworkShare {
 
         # Remove the mapped drive
         Remove-PSDrive -Name Z -ErrorAction Stop
+        return $true
     } catch {
         Write-Log -LogLevel ERROR "Failed to copy log file to network share. Exception: $_"
+        return $false
     }
 }
 

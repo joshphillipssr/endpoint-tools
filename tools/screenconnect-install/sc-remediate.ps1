@@ -11,7 +11,7 @@
 
 param()
 
-$InstallerUrl = 'https://joshphillipssr.screenconnect.com/Bin/ScreenConnect.ClientSetup.msi?e=Access&y=Guest'
+$InstallerUrl = 'https://screenconnect.example.com/Bin/ScreenConnect.ClientSetup.msi?e=Access&y=Guest'
 
 # Define the temporary path used for the downloaded MSI.  Using $env:TEMP
 # ensures the folder exists and is writable for both standard users and
